@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ChannelComponent } from './channel/channel.component';
 import { SummaryComponent } from './summary/summary.component';
+import { WebServiceProviderService } from './web-service-provider.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -14,9 +16,10 @@ import { SummaryComponent } from './summary/summary.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ WebServiceProviderService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
