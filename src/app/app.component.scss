@@ -1,10 +1,4 @@
-$primary: #00A8FF;
-$secondary: #151f54;
-$white: #fff;
-$grey: #eee;
-$error: #ff4444;
-$warning: #ffbb33;
-$success: #00C851;
+@import "../variables";
 
 nav.navigation {
     background: $secondary;
@@ -16,7 +10,7 @@ nav.navigation {
         list-style: none;
         
         img {
-            height: 100px;
+            height: 60px;
         }
 
         a {
@@ -24,7 +18,7 @@ nav.navigation {
             text-decoration: none;
             display: block;
             border-bottom: 1px solid $secondary;
-            padding: 50px 20px;
+            padding: 30px 20px;
 
             &:hover {
                 background: $primary;

@@ -1,7 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-$primary: #00A8FF;
-$secondary: #0a0a0a;
-$grey: #eee;
+@import "variables";
 
 body {
     margin: 0;
@@ -12,6 +10,50 @@ body {
 
     .appContainer {
         max-width: 1200px;
-        margin: 30px auto;
+        margin: 10px auto;
+    }
+
+    
+    .table {
+        width: 100%;
+        border-spacing: 0;
+        border: 1px solid $grey;
+
+        thead {
+            tr {
+                background: $grey;
+
+                th {
+                    border-bottom: 1px solid $grey;
+                }
+            }
+        }
+
+        tr {
+            td, th {
+                border-top: 1px solid $grey;
+                padding: 5px;
+                text-align: center;
+
+                input {
+                    width: 100px;
+                    height: calc(1.5em + .75rem + 2px);
+                    padding: .175rem .75rem;
+                    font-size: 1rem;
+                    font-weight: 400;
+                    line-height: 1.5;
+                    color: #495057;
+                    background-color: #fff;
+                    background-clip: padding-box;
+                    border: 1px solid #ced4da;
+                    border-radius: .25rem;
+                    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+                }
+            }
+
+            &:hover {
+                background: $grey;
+            }
+        }
     }
 }

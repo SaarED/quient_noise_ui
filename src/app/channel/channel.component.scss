@@ -1,0 +1,48 @@
+@import "../../variables";
+
+.table_container {
+    width: 66%;
+    display: inline-block;
+}
+
+.side_task {
+    width: 30%;
+    display: inline-block;
+    vertical-align: top;
+    padding: 10px;
+
+    .startRecord, .stopRecord {
+        background: lighten($color: $error, $amount: 5);
+        border: 1px solid $error;
+        color: $white;
+        font-size: 14px;
+        padding: 10px;
+        cursor: pointer;
+        border-radius: 5px;
+        display: block;
+        width: 100%;
+        margin: 10px;
+
+        &:hover {
+            background: $error;
+        }
+    }
+
+    .registerEvent {
+        background: lighten($color: $primary, $amount: 2);
+        border: 1px solid $primary;
+        color: $white;
+        font-size: 14px;
+        padding: 10px;
+        cursor: pointer;
+        border-radius: 5px;
+        display: block;
+        width: 100%;
+        margin: 10px;
+
+        &:hover {
+            background: $primary;
+        }
+    }
+
+}

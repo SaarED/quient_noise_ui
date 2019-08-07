@@ -1,3 +1,32 @@
-<p>
-  channel {{ channel }} works!
-</p>
+<!-- <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate> -->
+<form>
+  <div class="table_container">
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>פרמטרים</th>
+          <th>תיוג (מפעיל)</th>
+          <th>סיווג מכונה</th>
+          <th>וודאות</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let prop of channel.properties">
+          <td>{{ prop.name }}</td>
+          <td><input type="text" value="{{ prop.data }}"></td>
+          <td>{{ prop.data }}</td>
+          <td>{{ prop.confidence }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+  <div class="side_task">
+
+    <button class="startRecord" *ngIf="record == false" (click)="startRecord()">התחל הקלטה</button>
+    <button class="stopRecord" *ngIf="record == true" (click)="stopRecord()">הפסק הקלטה</button>
+    <button class="registerEvent" *ngIf="record == true" type="submit">רישום תיוג</button>
+
+  </div>
+</form>
