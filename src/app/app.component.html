@@ -3,8 +3,13 @@
     <nav class="navigation">
         <li><img src="assets/NavyIcon.jpg" /></li>
         <li *ngFor="let channel of channels">
-            <a routerLink="/channel/{{ channel.id }}">ערוץ {{ channel.id }}</a>
+            <a  routerLink="/channel/{{ channel.id }}" 
+                routerLinkActive="active" 
+                [routerLinkActiveOptions]="{ exact: true }">
+                ערוץ {{ channel.id }}
+            </a>
         </li>
+        <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">סיכום</a></li>
     </nav>
     
     <div class="pageContainer">        
