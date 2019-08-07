@@ -10,12 +10,14 @@ export class ChannelComponent implements OnInit {
 
   channel = null;
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute) {
+    this.route.params.subscribe( params => this.channel = params.id );
+  }
 
   ngOnInit() {
     this.route.paramMap.subscribe(parmaps => {
       if(parmaps) {
-        this.channel = parmaps.params.id;
+        data => this.channel = data 
       }
     });
   }
