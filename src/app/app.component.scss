@@ -1,0 +1,42 @@
+$primary: #00A8FF;
+$secondary: #151f54;
+$white: #fff;
+$grey: #eee;
+
+nav.navigation {
+    background: $secondary;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    li {
+        list-style: none;
+        
+        img {
+            height: 100px;
+        }
+
+        a {
+            color: $white; 
+            text-decoration: none;
+            display: block;
+            border-bottom: 1px solid $secondary;
+            padding: 50px 20px;
+
+            &:hover {
+                background: $primary;
+            }
+
+            .active {
+                background: $primary;
+                border-bottom: none;
+            }
+        }
+    }
+}
+
+.pageContainer {
+    background: white;
+    overflow: auto;
+    padding: 10px;
+}

@@ -1,1 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+$primary: #00A8FF;
+$secondary: #0a0a0a;
+$grey: #eee;
+
+body {
+    margin: 0;
+    padding: 0;
+    direction: rtl;
+    font-family: Arial, Helvetica, sans-serif;
+    background: $grey;
+
+    .appContainer {
+        max-width: 1200px;
+        margin: 30px auto;
+    }
+}

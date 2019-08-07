@@ -5,7 +5,7 @@ import { SummaryComponent } from './summary/summary.component';
 
 const routes: Routes = [
   { path: "channel/:id", component: ChannelComponent },
-  { path: "summary", component: SummaryComponent }
+  { path: "", component: SummaryComponent }
 ];
 
 @NgModule({

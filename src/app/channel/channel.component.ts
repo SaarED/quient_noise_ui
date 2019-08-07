@@ -8,13 +8,15 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ChannelComponent implements OnInit {
 
-  channel: any;
+  channel = null;
 
   constructor(private route: ActivatedRoute) {}
 
   ngOnInit() {
     this.route.paramMap.subscribe(parmaps => {
-      this.channel = parmaps.params.id;
+      if(parmaps) {
+        this.channel = parmaps.params.id;
+      }
     });
   }
 

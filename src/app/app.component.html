@@ -1,1 +1,13 @@
-<router-outlet></router-outlet>
+<div class="appContainer">
+
+    <nav class="navigation">
+        <li><img src="assets/NavyIcon.jpg" /></li>
+        <li *ngFor="let channel of channels">
+            <a routerLink="/channel/{{ channel.id }}">ערוץ {{ channel.id }}</a>
+        </li>
+    </nav>
+    
+    <div class="pageContainer">        
+        <router-outlet></router-outlet>
+    </div>
+</div>
