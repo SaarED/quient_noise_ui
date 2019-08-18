@@ -11,6 +11,11 @@
     vertical-align: top;
     padding: 10px;
 
+    textarea {
+        width: calc(100% - 1.5rem);
+        margin: 10px;
+    }
+
     .startRecord, .stopRecord {
         background: lighten($color: $error, $amount: 5);
         border: 1px solid $error;

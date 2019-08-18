@@ -1,5 +1,4 @@
-<!-- <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate> -->
-<form>
+<form (ngSubmit)="f.form.valid && registerEvent(f)" #f="ngForm" novalidate>
   <div class="table_container">
 
     <table class="table">
@@ -12,11 +11,14 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let prop of channel.properties">
-          <td>{{ prop.name }}</td>
-          <td><input type="text" value="{{ prop.data }}"></td>
-          <td>{{ prop.data }}</td>
-          <td>{{ prop.confidence }}</td>
+        <tr *ngFor="let prop of channel.properties;let index = index;trackBy:trackByIndex;">
+          <td>{{ prop.label }}</td>
+          <td>
+              <input type="text" [ngModel]="" [name]="'user_'+prop.name">
+              <input type="hidden" [ngModel]="" [name]="'algo_'+prop.name">
+            </td>
+          <td>{{ prop.value }}</td>
+          <td>{{ prop.conf }}</td>
         </tr>
       </tbody>
     </table>
@@ -24,8 +26,10 @@
   </div>
   <div class="side_task">
 
-    <button class="startRecord" *ngIf="record == false" (click)="startRecord()">התחל הקלטה</button>
-    <button class="stopRecord" *ngIf="record == true" (click)="stopRecord()">הפסק הקלטה</button>
+    <textarea placeholder="הערות ..."></textarea>
+
+    <button class="startRecord" *ngIf="record == false" (click)="startRecord(); $event.preventDefault();">התחל הקלטה</button>
+    <button class="stopRecord" *ngIf="record == true" (click)="stopRecord(); $event.preventDefault();">הפסק הקלטה</button>
     <button class="registerEvent" *ngIf="record == true" type="submit">רישום תיוג</button>
 
   </div>

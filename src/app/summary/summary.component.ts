@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { WebServiceProviderService } from '../web-service-provider.service';
 
 @Component({
   selector: 'app-summary',
@@ -8,28 +9,40 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class SummaryComponent implements OnInit {
 
-  channel = null;
+  channelModels = [];
 
-  constructor(private route: ActivatedRoute) {
-    this.route.params.subscribe( params => this.channel = {
-        id: params.id,
-        properties: [
-          { name: 'param 1', data: '123', confidence: 0.8 },
-          { name: 'param 2', data: '123', confidence: 0.8 },
-          { name: 'param 3', data: '123', confidence: 0.8 },
-          { name: 'param 4', data: '123', confidence: 0.8 },
-          { name: 'param 5', data: '123', confidence: 0.8 },
-          { name: 'param 1', data: '123', confidence: 0.8 },
-          { name: 'param 2', data: '123', confidence: 0.8 },
-          { name: 'param 3', data: '123', confidence: 0.8 },
-          { name: 'param 4', data: '123', confidence: 0.8 },
-          { name: 'param 5', data: '123', confidence: 0.8 },
-        ]
-      }
-    );
+  constructor(private webservice: WebServiceProviderService) {
+  
+    this.loadModels();
+
   }
 
   ngOnInit() {
+  }
+
+  loadModels() {
+
+    let modelsPromises = [];
+
+    for(let channelId = 1; channelId <= 5; channelId++) {
+      modelsPromises.push(this.webservice.getModels(channelId).toPromise());
+    }
+    Promise.all(modelsPromises).then((channelPromises) => {
+      for(let channel in channelPromises) {
+        for(let modelType in channelPromises[channel]) {
+          let modelStruct = channelPromises[channel][modelType];
+
+          if(this.channelModels[modelStruct["Key"]]) {
+            this.channelModels[modelStruct["Key"]].push(modelStruct["Value"]);
+          } else {
+            this.channelModels[modelStruct["Key"]] = [modelStruct["Value"]];
+          }
+        }
+      }
+
+      console.log(this.channelModels);
+    });
+
   }
 
 }

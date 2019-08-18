@@ -14,13 +14,9 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let prop of channel.properties">
-            <td>{{ prop.name }}</td>
-            <td>{{ prop.data }}</td>
-            <td>{{ prop.data }}</td>
-            <td>{{ prop.data }}</td>
-            <td>{{ prop.data }}</td>
-            <td>{{ prop.data }}</td>
+          <tr *ngFor="let property of channelModels | keyvalue">
+            <td>{{ property.key }}</td>
+            <td *ngFor="let channel of property.value">{{ channel }}</td>
           </tr>
         </tbody>
       </table>
